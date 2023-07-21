@@ -3,7 +3,8 @@ import utilities
 
 
 print(info.instruction)
-while True:
+point = True
+while point:
     get_request = input('What do you want? - ')
     if get_request == '/register':
         while True:
@@ -19,6 +20,17 @@ while True:
                     print("Invalid passwords! Try again!")
             else:
                 print("This login is already exist! Try again!")
+
+    elif get_request == "/login":
+        while True:
+            log_login = input("Write login - ")
+            log_password = input("Write password - ")
+            if utilities.check_log_pass(log_login, log_password):
+                print("You are successfully logged in!")
+                point = False
+                break
+            else:
+                print("Something is wrong! Try again!")
 
     elif get_request == '/help':
         print(info.instruction)

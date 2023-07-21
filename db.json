@@ -29,6 +29,12 @@
          "password": "popka",
          "id": 5,
          "date_of_create": "20/07/23 23:55:32"
+      },
+      {
+         "login": "Motya",
+         "password": "Cerber",
+         "id": 6,
+         "date_of_create": "21/07/23 11:51:16"
       }
    ]
 }

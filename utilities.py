@@ -38,6 +38,16 @@ def user_registration(login, password):
         json.dump(data, f, indent=3)
 
 
+def check_log_pass(login, password):
+    with open('db.json', 'r') as f:
+        data = json.load(f)
+        for users in data["users"]:
+            if users["login"] == login and users["password"] == password:
+                return True
+    return False
+
+
 if __name__ == "__main__":
-    print("hello")
-    user_registration("da", "pizpa")
+    # print("hello")
+    # user_registration("da", "pizpa")
+    print(check_log_pass(login='Matvey', password='12345'))
