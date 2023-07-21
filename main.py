@@ -39,9 +39,12 @@ while point:
             if log_password == '/return':
                 break
 
-            if utilities.check_log_pass(log_login, log_password):
+            if utilities.check_log_pass(log_login, log_password) == 'success':
                 print("You are successfully logged in!")
                 point = False
+                break
+            elif utilities.check_log_pass(log_login, log_password) == 'deleted':
+                print("This profile was deleted!")
                 break
             else:
                 print("Something is wrong! Try again!")

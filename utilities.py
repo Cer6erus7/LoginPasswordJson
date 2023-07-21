@@ -28,7 +28,7 @@ def user_registration(login, password):
     with open('db.json', 'r') as f:
         id = len(json.load(f)["users"])+1
     time = datetime.datetime.now().strftime("%d/%m/%y %H:%M:%S")
-    account = {"login": login, "password": password, "id": id, "date_of_create": time}
+    account = {"login": login, "password": password, "id": id, "date_of_create": time, "status": True}
 
     with open('db.json', 'r') as f:
         data = json.load(f)
@@ -42,8 +42,10 @@ def check_log_pass(login, password):
     with open('db.json', 'r') as f:
         data = json.load(f)
         for users in data["users"]:
-            if users["login"] == login and users["password"] == password:
-                return True
+            if users["login"] == login and users["password"] == password and users["status"] is True:
+                return 'success'
+            elif users["login"] == login and users["password"] == password and users["status"] is False:
+                return 'deleted'
     return False
 
 
