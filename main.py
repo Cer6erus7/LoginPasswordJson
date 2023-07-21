@@ -1,5 +1,6 @@
 import info
 import utilities
+from pprint import pprint
 
 
 print(info.instruction)
@@ -27,7 +28,10 @@ while global_point:
                 if not utilities.chek_login(reg_login):
                     if reg_password == reg_password_1:
                         utilities.user_registration(reg_login, reg_password)
-                        print("Registration was successful")
+                        print("\nRegistration was successful")
+                        menu_point = False
+                        profile_login = reg_login
+                        print(info.logged_instruction)
                         break
                     else:
                         print("Invalid passwords! Try again!")
@@ -62,7 +66,7 @@ while global_point:
             print(info.clear_area)
 
         elif get_request == '/return':
-            print('You are in main menu, you cannot return back!')
+            print('You are in main menu, there no back!')
 
         elif get_request == '/end':
             print("GoodBye!")
@@ -72,15 +76,51 @@ while global_point:
         else:
             print("Write a correct request!")
 
+
     while utilities.chek_login(profile_login):
+        deleted_point = True
         print(f'\nHello, {profile_login}! This is your page!\n')
         get_req_loggin = input("What do you want? - ")
 
-        if get_req_loggin == "/help":
+        if get_req_loggin == "/info":
+            pprint(utilities.chek_info_profile(profile_login))
+
+        elif get_req_loggin == "/help":
             print(info.logged_instruction)
 
         elif get_req_loggin == "/clear":
             print(info.clear_area)
+
+        elif get_req_loggin == "/delete":
+
+            while deleted_point:
+                del_login = input("Write your login to delete - ")
+                if del_login == "/return":
+                    break
+                del_password = input("Write your password to delete - ")
+                if del_password == "/return":
+                    break
+
+                if utilities.check_log_pass(del_login, del_password) == "success":
+                    while True:
+                        verification = input('Are you sure?(Yes/No) - ')
+                        if verification == "Yes":
+                            utilities.del_acc(del_login)
+                            profile_login = None
+                            menu_point = True
+                            deleted_point = False
+                            print('\nYour profile was successfully deleted! Bye!')
+                            break
+                        elif verification == "No":
+                            deleted_point = False
+                            break
+                        else:
+                            print("Write correct answer!")
+                else:
+                    print("Something is wrong! Try again!")
+
+        elif get_req_loggin == "/return":
+            print('You are in profile menu, there are no back!')
 
         elif get_req_loggin == "/sing_out":
             print(f"Bye, {profile_login}! See you next time!")

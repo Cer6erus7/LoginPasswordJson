@@ -47,7 +47,7 @@
          "password": "123",
          "id": 7,
          "date_of_create": "21/07/23 12:13:58",
-         "status": true
+         "status": false
       },
       {
          "login": "Anton",
@@ -61,7 +61,35 @@
          "password": "petuh",
          "id": 9,
          "date_of_create": "21/07/23 13:51:07",
+         "status": false
+      },
+      {
+         "login": "Lopuh",
+         "password": "5678",
+         "id": 10,
+         "date_of_create": "21/07/23 15:20:12",
          "status": true
+      },
+      {
+         "login": "KEka",
+         "password": "123",
+         "id": 11,
+         "date_of_create": "21/07/23 15:23:33",
+         "status": true
+      },
+      {
+         "login": "/kol",
+         "password": "123",
+         "id": 12,
+         "date_of_create": "21/07/23 15:24:34",
+         "status": false
+      },
+      {
+         "login": "Papa",
+         "password": "4321",
+         "id": 13,
+         "date_of_create": "21/07/23 15:27:11",
+         "status": false
       }
    ]
 }

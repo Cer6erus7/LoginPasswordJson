@@ -9,6 +9,7 @@ instruction = """
 logged_instruction = """
 /info - get info about this account
 /help - know description of your opportunity
+/return - return back to profile
 /post - post something
 /clear - clear area
 /delete - delete profile
