@@ -55,6 +55,13 @@
          "id": 8,
          "date_of_create": "21/07/23 12:51:10",
          "status": false
+      },
+      {
+         "login": "Kolya",
+         "password": "petuh",
+         "id": 9,
+         "date_of_create": "21/07/23 13:51:07",
+         "status": true
       }
    ]
 }
