@@ -1,0 +1,34 @@
+{
+   "users": [
+      {
+         "login": "Matvey",
+         "password": "12345",
+         "id": 1,
+         "date_of_create": "12:01:2022"
+      },
+      {
+         "login": "Ernest",
+         "password": "bezdelnik",
+         "id": 2,
+         "date_of_create": "12:01:2023"
+      },
+      {
+         "login": "da",
+         "password": "pizpa",
+         "id": 3,
+         "date_of_create": "20/07/23 23:36:44"
+      },
+      {
+         "login": "Nastya",
+         "password": "Nastya_loh",
+         "id": 4,
+         "date_of_create": "20/07/23 23:48:47"
+      },
+      {
+         "login": "Ignat",
+         "password": "popka",
+         "id": 5,
+         "date_of_create": "20/07/23 23:55:32"
+      }
+   ]
+}
