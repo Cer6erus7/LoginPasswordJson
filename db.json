@@ -34,7 +34,7 @@
          "posts": []
       },
       {
-         "login": "Nastya",
+         "login": "reger",
          "password": "Nastya_loh",
          "id": 4,
          "date_of_create": "20/07/23 23:48:47",
@@ -106,6 +106,18 @@
          "status": false,
          "amount_of_posts": 0,
          "posts": []
+      },
+      {
+         "login": "Krisa12",
+         "password": "1175",
+         "id": 12,
+         "date_of_create": "21/07/23 19:11:03",
+         "status": false,
+         "amount_of_posts": 2,
+         "posts": [
+            "NEVERMIND",
+            "Nastya pirozhok"
+         ]
       }
    ]
 }
