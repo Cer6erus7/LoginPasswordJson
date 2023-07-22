@@ -160,6 +160,12 @@ def add_post(login, post):
 
 
 def delete_post(login, number):
+    """
+    Принимает лонин и номер посата, и удаляет пост под номером полученым от пользователя
+    :param login:
+    :param number:
+    :return:
+    """
     with open('db.json', 'r') as f:
         data = json.load(f)
         lst = []
