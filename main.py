@@ -91,6 +91,29 @@ while global_point:
         elif get_req_loggin == "/clear":
             print(info.clear_area)
 
+        elif get_req_loggin == "/get_post":
+            while True:
+                post_number = input("Print number of your post - ")
+                if post_number == "/return":
+                    break
+                if post_number.isdigit():
+                    if utilities.find_post(profile_login, post_number) is not False:
+                        print(f"\n[{utilities.find_post(profile_login, post_number)}]")
+                        break
+                    else:
+                        print(f"Post by '{post_number}' doesn't exist!")
+                        break
+                else:
+                    print("Write a number!")
+
+        elif get_req_loggin == '/all_posts':
+            print()
+            if utilities.get_all_posts(profile_login):
+                for num, i in enumerate(utilities.get_all_posts(profile_login)):
+                    print(f"   {num} - {i}")
+            else:
+                print("You don't have posts yet!")
+
         elif get_req_loggin == "/delete":
 
             while deleted_point:

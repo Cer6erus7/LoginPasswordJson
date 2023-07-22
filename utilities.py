@@ -29,7 +29,13 @@ def user_registration(login, password):
     with open('db.json', 'r') as f:
         id = len(json.load(f)["users"]) + 1
     time = datetime.datetime.now().strftime("%d/%m/%y %H:%M:%S")
-    account = {"login": login, "password": password, "id": id, "date_of_create": time, "status": True}
+    account = {"login": login,
+               "password": password,
+               "id": id,
+               "date_of_create": time,
+               "status": True,
+               "amount_of_posts": 0,
+               "posts": []}
 
     with open('db.json', 'r') as f:
         data = json.load(f)
@@ -72,7 +78,9 @@ def chek_info_profile(login):
                         "password": users["password"],
                         "id": users["id"],
                         "date_of_create": users["date_of_create"],
-                        "status": users["status"]}
+                        "status": users["status"],
+                        "amount_of_posts": users["amount_of_posts"],
+                        }
     return "Not found"
 
 
@@ -98,79 +106,40 @@ def del_acc(login):
         json.dump({"users": lst}, f, indent=3)
 
 
+def find_post(login, number):
+    """
+    Принимает логин и номер поста пользователя. Возвращает пост под введеным номером, если же нет
+    такого поста, выведет False.
+    :param login:
+    :param number:
+    :return:
+    """
+    try:
+        with open('db.json', 'r') as f:
+            data = json.load(f)
+            for user in data["users"]:
+                if user["login"] == login:
+                    return user['posts'][int(number)]
+    except:
+        return False
+
+
+def get_all_posts(login):
+    """
+    Принимает логин пользователя и возвращает полный список всех постов
+    :param login:
+    :return:
+    """
+    with open('db.json', 'r') as f:
+        data = json.load(f)
+        for user in data["users"]:
+            if user["login"] == login:
+                return user["posts"]
+
 if __name__ == "__main__":
     # print("hello")
     # user_registration("da", "pizpa")
     print(check_log_pass(login='Matvey', password='12345'))
     pprint.pprint(chek_info_profile("Matvey"))
-    del_acc('Kolya')
-
-
-"""
-{
-   "users": [
-      {
-         "login": "Matvey",
-         "password": "12345",
-         "id": 1,
-         "date_of_create": "12:01:2022",
-         "status": true
-      },
-      {
-         "login": "Ernest",
-         "password": "bezdelnik",
-         "id": 2,
-         "date_of_create": "12:01:2023",
-         "status": true
-      },
-      {
-         "login": "da",
-         "password": "pizpa",
-         "id": 3,
-         "date_of_create": "20/07/23 23:36:44",
-         "status": true
-      },
-      {
-         "login": "Nastya",
-         "password": "Nastya_loh",
-         "id": 4,
-         "date_of_create": "20/07/23 23:48:47",
-         "status": true
-      },
-      {
-         "login": "Ignat",
-         "password": "popka",
-         "id": 5,
-         "date_of_create": "20/07/23 23:55:32",
-         "status": true
-      },
-      {
-         "login": "Motya",
-         "password": "Cerber",
-         "id": 6,
-         "date_of_create": "21/07/23 11:51:16",
-         "status": true
-      },
-      {
-         "login": "Loh",
-         "password": "123",
-         "id": 7,
-         "date_of_create": "21/07/23 12:13:58",
-         "status": true
-      },
-      {
-         "login": "Anton",
-         "password": "petuhov",
-         "id": 8,
-         "date_of_create": "21/07/23 12:51:10",
-         "status": false
-      },
-      {
-         "login": "Kolya",
-         "password": "petuh",
-         "id": 9,
-         "date_of_create": "21/07/23 13:51:07",
-         "status": true
-      }
-   ]
-}"""
+    # del_acc('Kolya')
+    print(get_all_posts("Matvey"))
