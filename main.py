@@ -114,6 +114,37 @@ while global_point:
             else:
                 print("You don't have posts yet!")
 
+        elif get_req_loggin == "/add_post":
+            post = input("\nWrite your post here - ")
+            while True:
+                if post == "/return":
+                    break
+
+                question = input("\nAre you sure to post this?(Yes/No) - ")
+                if question == "Yes":
+                    utilities.add_post(profile_login, post)
+                    print("Your post was added!")
+                    break
+                elif question == "No":
+                    break
+                else:
+                    print("Write a correct answer!")
+
+        elif get_req_loggin == "/delete_post":
+            while True:
+                del_number_post = input("\nWrite number of post that you want to delete - ")
+                if del_number_post == "/return":
+                    break
+                if del_number_post.isdigit():
+                    if utilities.delete_post(profile_login, del_number_post) is not False:
+                        utilities.delete_post(profile_login, del_number_post)
+                        print("\nYour post was deleted!")
+                        break
+                    else:
+                        print(f"Post by '{del_number_post}' doesn't exist!")
+                else:
+                    print("Write only numbers!")
+
         elif get_req_loggin == "/delete":
 
             while deleted_point:

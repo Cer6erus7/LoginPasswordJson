@@ -136,6 +136,48 @@ def get_all_posts(login):
             if user["login"] == login:
                 return user["posts"]
 
+
+def add_post(login, post):
+    """
+    Принимает логин и пост пользователя, а затем добавляет его в базу данных
+    :param login:
+    :param post:
+    :return:
+    """
+    with open('db.json', 'r') as f:
+        data = json.load(f)
+        lst = []
+        for user in data["users"]:
+            if user["login"] == login:
+                user["amount_of_posts"] += 1
+                user["posts"].append(post)
+                lst.append(user)
+            else:
+                lst.append(user)
+
+    with open('db.json', 'w') as f:
+        json.dump({"users": lst}, f, indent=3)
+
+
+def delete_post(login, number):
+    with open('db.json', 'r') as f:
+        data = json.load(f)
+        lst = []
+        try:
+            for user in data["users"]:
+                if user["login"] == login:
+                    user["amount_of_posts"] -= 1
+                    user["posts"].pop(int(number))
+                    lst.append(user)
+                else:
+                    lst.append(user)
+        except:
+            return False
+
+    with open('db.json', 'w') as f:
+        json.dump({"users": lst}, f, indent=3)
+
+
 if __name__ == "__main__":
     # print("hello")
     # user_registration("da", "pizpa")
@@ -143,3 +185,4 @@ if __name__ == "__main__":
     pprint.pprint(chek_info_profile("Matvey"))
     # del_acc('Kolya')
     print(get_all_posts("Matvey"))
+    # add_post("Ernest", "I'm bezdelnik!!!!")

@@ -11,6 +11,7 @@ logged_instruction = """
 /help - know description of your opportunity
 /return - return back to profile
 /add_post - post something
+/delete_post - delete post by number
 /all_posts - look for all available posts
 /get_post - find a post
 /clear - clear area

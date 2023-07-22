@@ -6,9 +6,11 @@
          "id": 1,
          "date_of_create": "12:01:2022",
          "status": true,
-         "amount_of_posts": 1,
+         "amount_of_posts": 3,
          "posts": [
-            "Pirozhok ochen vkusnii"
+            "Pirozhok ochen vkusnii",
+            "I'm roker!!!!",
+            "Privet, menya zovut Matvey!"
          ]
       },
       {
@@ -17,8 +19,10 @@
          "id": 2,
          "date_of_create": "12:01:2023",
          "status": true,
-         "amount_of_posts": 0,
-         "posts": []
+         "amount_of_posts": 1,
+         "posts": [
+            "I'm bezdelnik!!!!"
+         ]
       },
       {
          "login": "da",
@@ -79,6 +83,26 @@
          "password": "petuh",
          "id": 9,
          "date_of_create": "21/07/23 13:51:07",
+         "status": false,
+         "amount_of_posts": 0,
+         "posts": []
+      },
+      {
+         "login": "Lolka",
+         "password": "564",
+         "id": 10,
+         "date_of_create": "21/07/23 18:32:14",
+         "status": false,
+         "amount_of_posts": 1,
+         "posts": [
+            "Privet"
+         ]
+      },
+      {
+         "login": "Nasty",
+         "password": "Loh",
+         "id": 11,
+         "date_of_create": "21/07/23 18:52:10",
          "status": false,
          "amount_of_posts": 0,
          "posts": []
